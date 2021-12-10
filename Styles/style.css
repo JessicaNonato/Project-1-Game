@@ -1,7 +1,49 @@
-.dino{
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-image: url(/img/background1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #91d4f7;
+}
+
+.homer img{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    bottom: 10px;
+}
+.obstaculo {
     position: absolute;
     width: 60px;
     height: 60px;
-    background-color: green;
-    bottom: 0px;
-}
+    background-image: url(/img/donut.png);
+    background-repeat: no-repeat;
+    background-size: 50px;
+    background-position: 5%;
+    bottom: 10px;
+  }
+  .grid{
+      border: 5px solid red;
+      height: 97vh;
+  }
+  @keyframes slideright {
+    from {
+        background-position: 70000%;
+    }
+    to {
+        background-position: 0%;
+    }
+  }
+  
+  @-webkit-keyframes slideright {
+    from {
+        background-position: 70000%;
+    }
+    to {
+        background-position: 0%;
+    }
+  }
