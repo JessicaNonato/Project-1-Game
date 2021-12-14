@@ -1,17 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const homer = document.querySelector('.homer> img');
+    const homer = document.querySelector('.homer');
     const grid = document.querySelector('.grid');
     const body = document.querySelector('body');
-    
+    const alert = document.getElementById('alert');
+    const ceu = document.querySelector("#ceu");
+    let pulando = false;
     let gravidade = 1;
-    let isGameOver = false;
+    let GameOver = false;
+    let timerId = null;
+    let tempoDoObstaculo = 0;
 
-       function control(e){
-        if(e.keyCode === 32){
-            pular();
+    function controle(e){
+      if (e.keyCode === 32) {
+        if (!pulando) {
+          pulando = true;
+          pular()
         }
+      }
     }
-    document.addEventListener('keyup', control);
+
+    document.addEventListener('keyup', controle);
 
     let posicao = 10;
     function pular () {
@@ -23,11 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
           let baixoTempoId = setInterval(function () {
             if (contar === 0) {
               clearInterval(baixoTempoId);
-            } else{
+              pulando = false;
+            } else {
                 posicao -= 15;
                 contar --;
                 posicao *= gravidade;
-                homer.style.bottom = posicao + 'px'
+                homer.style.bottom = posicao + 'px';
             }
 
           },20)
@@ -36,32 +45,74 @@ document.addEventListener('DOMContentLoaded', () => {
         posicao +=15;
         contar++;
         posicao *= gravidade;
-        homer.style.bottom = posicao + 'px'
+        homer.style.bottom = posicao + 'px';
       },20)
+    }
+    
+    let posicaoObstaculo = 1200;
+   
+    let obstaculos = [];
+    function criarUmObstaculo(){
+      console.log("estoufuncionandoCriar")
+      const obstaculo = document.createElement('div');
+      obstaculo.classList.add('obstaculo');
+      obstaculo.style.left = posicaoObstaculo + 'px'; 
+      grid.appendChild(obstaculo);
+      
+    }
+
+    function moverObstaculos(obstaculo){
+      console.log("estoufuncionando")
+
+        let posicao = Number(obstaculo.style.left.replace("px",""));
+        obstaculo.style.left = (posicao - 10) + "px";
+    
+    }
+    function gameOver(obstaculo){
+     
+        let posicaoObstaculo = Number(obstaculo.style.left.replace("px",""));
+        if (posicaoObstaculo > 0 && posicaoObstaculo < 70 && posicao < 70) {
+          GameOver = true;
+          alert.innerHTML = 'Game Over';               
+          ceu.removeChild(grid);
+      } 
     }
   
     function gerarObstaculos() {
-        let randomTime = Math.random() * 4000
-        let posicaoObstaculo = 1000;
-        const obstaculo = document.createElement('div');
-        obstaculo.classList.add('obstaculo');
-        grid.appendChild(obstaculo);
-        obstaculo.style.left = posicaoObstaculo;
-        let timerId = setInterval(function() {
-            if (posicaoObstaculo > 0 && posicaoObstaculo < 60 && position < 60) {
-              clearInterval(timerId)
-              alert.innerHTML = 'Game Over';
-              isGameOver = true;
-              //remove all children
-              body.removeChild(body.firstChild)
-              while (grid.firstChild) {
-                grid.removeChild(grid.lastChild)
-              }
+      
+        timerId = setInterval(function() {
+          tempoDoObstaculo += 1;
+          if(!GameOver){
+            if (tempoDoObstaculo % 60 === 0){
+              let randomTempo = Math.random() * 6000 + 5000;
+              setTimeout(criarUmObstaculo, randomTempo);
+            } 
+            let todosObstaculos = grid.querySelectorAll(".obstaculo");
+            for(let obstaculo of todosObstaculos){
+            moverObstaculos(obstaculo);
+            gameOver(obstaculo);
+            pontuacao(obstaculo);
             }
-          posicaoObstaculo -=10;
-          obstaculo.style.left = posicaoObstaculo + 'px';  
-        },20)
-        if (!isGameOver) setTimeout(generateObstacles, randomTime)
+          } else{
+            clearInterval(timerId);
+            console.log("oi");
+          }
+        },30)
+       
       }
-      gerarObstaculos()
-    })
+
+      let pontos = 0;
+      let score = body.querySelector(".score span");
+
+      function pontuacao(obstaculo){
+        let posicaoObstaculo = Number(obstaculo.style.left.replace("px",""));
+        if(posicaoObstaculo <= 0){
+          grid.removeChild(obstaculo);
+          pontos += 1;
+          score.innerHTML = pontos;
+        }
+      }
+
+      let btnStart = document.querySelector("#start");
+      btnStart.addEventListener("click",gerarObstaculos);    
+});

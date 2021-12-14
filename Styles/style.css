@@ -1,36 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
 *{
     padding: 0;
     margin: 0;
 }
 body{
-    background-image: url(/img/background1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-color: #91d4f7;
+     background-color: #6ad5f9  ;
+     font-family: 'Rock Salt', cursive;
 }
 
-.homer img{
+.homer{
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     bottom: 10px;
+    background-image: url(/img/running-homer.png);
+    background-size: 90%;
+    background-repeat: no-repeat;
 }
 .obstaculo {
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     background-image: url(/img/donut.png);
     background-repeat: no-repeat;
-    background-size: 50px;
-    background-position: 5%;
+    background-size: 100%;
     bottom: 10px;
   }
   .grid{
       border: 5px solid red;
-      height: 97vh;
+      height: 400px;
   }
-  @keyframes slideright {
+
+  h2{
+      color: white;
+      display: flex;
+      justify-content: center;
+      padding: 80px;
+      font-size: 100px;
+     }
+
+  @keyframes slideleft {
     from {
         background-position: 70000%;
     }
@@ -39,7 +49,7 @@ body{
     }
   }
   
-  @-webkit-keyframes slideright {
+  @-webkit-keyframes slideleft {
     from {
         background-position: 70000%;
     }
@@ -47,3 +57,40 @@ body{
         background-position: 0%;
     }
   }
+  
+  #ceu {
+    border: 5px solid green;
+    position: absolute;
+    bottom: 0px;
+    background-image: url(/img/background3.jpg);
+    background-repeat: repeat-x;
+    animation: slideleft 4000s infinite linear;
+    -webkit-animation: slideleft 4000s infinite linear;
+    width: 100%;
+    height: 400px;
+  }
+  .btn-area{
+      display: flex;
+      flex-direction: inherit;
+      justify-content: center;
+  }
+  .btns{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+  }
+  #start{
+    font-size: 1rem;
+    background: #f05aa1;
+    color: white;
+    height: 40px;
+    width: 100px;
+    font-family: 'Rock Salt', cursive;
+    border-radius: 15px;
+  }
+  .score{
+      color: white;
+  }
+
+
