@@ -6,9 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const ceu = document.querySelector("#ceu");
     let pulando = false;
     let gravidade = 1;
-    let GameOver = false;
+    let gameOver = false;
     let timerId = null;
     let tempoDoObstaculo = 0;
+    let gameStarted = false;
 
     function controle(e){
       if (e.keyCode === 32) {
@@ -68,29 +69,31 @@ document.addEventListener('DOMContentLoaded', () => {
         obstaculo.style.left = (posicao - 10) + "px";
     
     }
-    function gameOver(obstaculo){
+    function gOver(obstaculo){
      
         let posicaoObstaculo = Number(obstaculo.style.left.replace("px",""));
         if (posicaoObstaculo > 0 && posicaoObstaculo < 70 && posicao < 70) {
-          GameOver = true;
-          alert.innerHTML = 'Game Over';               
+          gameOver = true;
+          alert.innerHTML = 'Game Over';           
           ceu.removeChild(grid);
+          console.log('over');
       } 
     }
   
     function gerarObstaculos() {
+      gameStarted = true;
       
         timerId = setInterval(function() {
           tempoDoObstaculo += 1;
-          if(!GameOver){
+          if(!gameOver){
             if (tempoDoObstaculo % 60 === 0){
-              let randomTempo = Math.random() * 6000 + 5000;
+              let randomTempo = Math.random() * 2000 + 2000;
               setTimeout(criarUmObstaculo, randomTempo);
             } 
             let todosObstaculos = grid.querySelectorAll(".obstaculo");
             for(let obstaculo of todosObstaculos){
             moverObstaculos(obstaculo);
-            gameOver(obstaculo);
+            gOver(obstaculo);
             pontuacao(obstaculo);
             }
           } else{
@@ -114,5 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       let btnStart = document.querySelector("#start");
-      btnStart.addEventListener("click",gerarObstaculos);    
+      btnStart.addEventListener("click",() =>{
+        if(!gameStarted){
+          gerarObstaculos();
+        }
+        });    
 });

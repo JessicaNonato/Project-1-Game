@@ -28,7 +28,6 @@ body{
     bottom: 10px;
   }
   .grid{
-      border: 5px solid red;
       height: 400px;
   }
 
@@ -36,8 +35,7 @@ body{
       color: white;
       display: flex;
       justify-content: center;
-      padding: 80px;
-      font-size: 100px;
+      font-size: 40px;
      }
 
   @keyframes slideleft {
@@ -59,7 +57,6 @@ body{
   }
   
   #ceu {
-    border: 5px solid green;
     position: absolute;
     bottom: 0px;
     background-image: url(/img/background3.jpg);
@@ -78,7 +75,7 @@ body{
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 20px;
+      padding: 10px;
   }
   #start{
     font-size: 1rem;
@@ -92,5 +89,42 @@ body{
   .score{
       color: white;
   }
+  .seta{
+      height: 30px;
+      width: 30px;
+      display: flex;
+  }
+  .homePage{
+    background-image: url(/img/backgroud-start.jpg);
+    background-repeat: no-repeat;
+    background-size:100%;
+    bottom: 0;
+    color: black;
+    left: 0;
+    overflow: auto;
+    padding: 3em;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
 
-
+  }
+ .texto-home{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+ }
+ h1{
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    text-shadow: 0.1em 0.1em 0.2em black;
+    margin: 50px;
+   }
+   p{
+    color: white;
+    display: flex;
+    justify-content: center; 
+    text-shadow: 0.1em 0.1em 0.2em black;  
+   }
