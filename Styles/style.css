@@ -14,7 +14,7 @@ body{
     width: 90px;
     height: 90px;
     bottom: 10px;
-    background-image: url(./img/running-homer.png);
+    background-image: url(../img/running-homer.png);
     background-size: 90%;
     background-repeat: no-repeat;
 }
@@ -22,7 +22,7 @@ body{
     position: absolute;
     width: 40px;
     height: 40px;
-    background-image: url(./img/donut.png);
+    background-image: url(../img/donut.png);
     background-repeat: no-repeat;
     background-size: 100%;
     bottom: 10px;
@@ -59,7 +59,7 @@ body{
   #ceu {
     position: absolute;
     bottom: 0px;
-    background-image: url(./img/background3.jpg);
+    background-image: url(../img/background3.jpg);
     background-repeat: repeat-x;
     animation: slideleft 4000s infinite linear;
     -webkit-animation: slideleft 4000s infinite linear;
@@ -95,7 +95,7 @@ body{
       display: flex;
   }
   .homePage{
-    background-image: url(./img/backgroud-start.jpg);
+    background-image: url(../img/backgroud-start.jpg);
     background-repeat: no-repeat;
     background-size:100%;
     bottom: 0;
