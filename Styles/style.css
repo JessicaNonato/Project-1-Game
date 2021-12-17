@@ -75,7 +75,7 @@ body{
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 10px;
+      padding: 15px;
   }
   #start{
     font-size: 1rem;
@@ -94,17 +94,13 @@ body{
       width: 30px;
       display: flex;
   }
-  .homePage{
+  .bottom{
     background-image: url(../img/backgroud-start.jpg);
     background-repeat: no-repeat;
     background-size:100%;
-    bottom: 0;
     color: black;
-    left: 0;
     overflow: auto;
-    padding: 3em;
-    position: absolute;
-    right: 0;
+   height: 800px;
     text-align: center;
     top: 0;
 
@@ -120,14 +116,18 @@ body{
     justify-content: center;
     font-size: 40px;
     text-shadow: 0.1em 0.1em 0.2em black;
-    margin: 50px;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    margin: 40px;
+    padding-bottom: 20px;
    }
    p{
     color: white;
     display: flex;
     justify-content: center; 
     text-shadow: 0.1em 0.1em 0.2em black; 
-    margin: 20px;
+    margin: 5px;
+   }
+   .p1{
+       color: #f05aa1;
+       text-shadow:none;
+       margin: 10px;
    }
