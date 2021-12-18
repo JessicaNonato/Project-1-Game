@@ -146,7 +146,7 @@ height: 2100px;
     border: 4px dotted #f05aa1;
     width: 400px;
     padding: 20px;
-    margin: 60px;
+    margin-right: 60px;
    }
    .instrucoes{
        display: flex;
