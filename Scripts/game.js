@@ -69,12 +69,18 @@ document.addEventListener('DOMContentLoaded', () => {
         obstaculo.style.left = (posicao - 10) + "px";
     
     }
+
+    function imageOption(){
+      document.getElementById("imageoption").src="../img/game-over-homer.png";
+      console.log('estouimg')
+   }
     function gOver(obstaculo){
      
         let posicaoObstaculo = Number(obstaculo.style.left.replace("px",""));
         if (posicaoObstaculo > 0 && posicaoObstaculo < 70 && posicao < 70) {
           gameOver = true;
-          alert.innerHTML = 'Game Over';           
+          imageOption();  
+          alert.innerHTML = 'Game Over';       
           ceu.removeChild(grid);
           console.log('over');
       } 
@@ -116,10 +122,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      let btnStart = document.querySelector("#start");
-      btnStart.addEventListener("click",() =>{
+      //let btnStart = document.querySelector("#start");
+      //btnStart.addEventListener("click",() =>{
         if(!gameStarted){
-          gerarObstaculos();
+         gerarObstaculos();
+         
         }
+        
+        let btn = document.querySelector("#refresh");
+        btn.addEventListener("click", function() {
+    
+         location.reload();
+          });
+
         });    
-});
+        
+//});

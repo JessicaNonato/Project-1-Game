@@ -77,12 +77,12 @@ body{
       justify-content: center;
       padding: 15px;
   }
-  #start{
+  #refresh{
     font-size: 1rem;
     background: #f05aa1;
     color: white;
-    height: 40px;
-    width: 100px;
+    height: 70px;
+    width: 120px;
     font-family: 'Rock Salt', cursive;
     border-radius: 15px;
   }
@@ -95,15 +95,13 @@ body{
       display: flex;
   }
   .bottom{
-    background-image: url(../img/backgroud-start.jpg);
+    background-image: url(../img/backgroud-start1.jpg.jpg);
     background-repeat: no-repeat;
     background-size:100%;
     color: black;
     overflow: auto;
-   height: 800px;
     text-align: center;
-    top: 0;
-
+height: 2100px;
   }
  .texto-home{
      display: flex;
@@ -114,10 +112,11 @@ body{
     color: white;
     display: flex;
     justify-content: center;
-    font-size: 40px;
+    font-size: 60px;
     text-shadow: 0.1em 0.1em 0.2em black;
     margin: 40px;
-    padding-bottom: 20px;
+    padding: 20px;
+
    }
    p{
     color: white;
@@ -130,4 +129,29 @@ body{
        color: #f05aa1;
        text-shadow:none;
        margin: 10px;
+   }
+   #imageoption{
+    height: auto;
+    width: 160px;
+    display: flex;
+    padding-left: 20px;
+   }
+   .divalert{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+   }
+   .dotted{
+    border: 4px dotted #f05aa1;
+    width: 400px;
+    padding: 20px;
+    margin: 60px;
+   }
+   .instrucoes{
+       display: flex;
+       flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
    }
