@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },20)
     }
     
-    let posicaoObstaculo = 1200;
+    let posicaoObstaculo = 1800;
    
     let obstaculos = [];
     function criarUmObstaculo(){
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
           tempoDoObstaculo += 1;
           if(!gameOver){
             if (tempoDoObstaculo % 60 === 0){
-              let randomTempo = Math.random() * 2000 + 2000;
+              let randomTempo = Math.random() * 2000 + 1000;
               setTimeout(criarUmObstaculo, randomTempo);
             } 
             let todosObstaculos = grid.querySelectorAll(".obstaculo");
