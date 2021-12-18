@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function imageOption(){
-      document.getElementById("imageoption").src="../img/game-over-homer.png";
+      document.getElementById("imageoption").src="./img/game-over-homer.png";
       console.log('estouimg')
    }
     function gOver(obstaculo){
